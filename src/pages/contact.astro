@@ -9,6 +9,8 @@ console.log(index, lawyer)
 ---
 
 <Layout>
+{
+    index != -1 ?
 <div class="flex max-sm:flex-col h-screen w-screen ">
     <img src={lawyer.contacts.avatar} class="w-1/2 h-screen loading max-sm:w-screen max-sm:h-1/2" loading="lazy" alt={lawyer.name}>
     <div class="flex flex-col  w-1/2 h-screen px-4 max-sm:w-screen max-sm:h-1/2">
@@ -29,7 +31,7 @@ console.log(index, lawyer)
         
     </div>
 </div>
-    
+}
 
 	<script>
 		let images = document.querySelectorAll("img.loading");
