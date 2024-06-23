@@ -1,0 +1,42 @@
+---
+import Layout from "../Layout.astro";
+import { mockData } from "../data";
+import { Icon } from 'astro-icon/components'
+
+const index = +(Astro.url.searchParams.get("i"))
+const lawyer = mockData[index];
+console.log(index, lawyer)
+---
+
+<Layout>
+<div class="flex max-sm:flex-col h-screen w-screen ">
+    <img src={lawyer.contacts.avatar} class="w-1/2 h-screen loading max-sm:w-screen max-sm:h-1/2" loading="lazy" alt={lawyer.name}>
+    <div class="flex flex-col  w-1/2 h-screen px-4 max-sm:w-screen max-sm:h-1/2">
+        <h1 class="font-bold text-3xl w-full text-center">{lawyer.name}</h1>
+        <br>
+        <a class="text-2xl w-full hover:text-white transition-colors" href={"tel:"+lawyer.contacts.phoneNumber}>
+            Phone Number: {lawyer.contacts.phoneNumber}
+        </a>
+        
+        <a class="text-2xl w-full hover:text-white transition-colors items-center" href={"mailto:"+lawyer.contacts.email}>
+            Email: {lawyer.contacts.email}
+       </a>
+           
+        <a class="text-2xl w-full hover:text-white transition-colors items-center text-green-300" href={"https://wa.me/"+lawyer.contacts.whatsappNumber}>
+            <Icon name="mdi:whatsapp" class="inline" /> Whatsapp Number: {lawyer.contacts.whatsappNumber}
+        </a>
+
+        
+    </div>
+</div>
+    
+
+	<script>
+		let images = document.querySelectorAll("img.loading");
+		images.forEach((img) => {
+			img.addEventListener("load", () => {
+				img.classList.remove("loading")
+			})
+		})
+	</script>
+</Layout>
