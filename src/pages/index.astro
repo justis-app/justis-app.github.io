@@ -15,7 +15,7 @@ import { Icon } from 'astro-icon/components'
 					<figure>
 						<img
 						src={lawyer.contacts.avatar}
-						class="loading h-[384px]"
+						class="h-[384px]"
 						alt="Shoes" />
 					</figure>
 					<div class="card-body">
@@ -34,14 +34,7 @@ import { Icon } from 'astro-icon/components'
 
 	</div>
 
-	<script>
-		let images = document.querySelectorAll("img.loading");
-		images.forEach((img) => {
-			img.addEventListener("load", () => {
-				img.classList.remove("loading")
-			})
-		})
-	</script>
+	
 </Layout>
 
 <style>
