@@ -21,7 +21,9 @@ export const LAWYER_TYPES = {
     GOVERNMENT: "Government Lawyer",
     IMMIGRATION: "Immigration Lawyer"
 } as const;
-
+let obj = ["Hello", "Bye"] as const
+type ArrayEnum<T> = T;
+type e = ArrayEnum<typeof obj>
 export type ObjectEnumType<T> = T[keyof T] 
 export type LawyerType = ObjectEnumType<typeof LAWYER_TYPES>
 
